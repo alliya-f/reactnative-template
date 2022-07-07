@@ -1,8 +1,17 @@
 import React from 'react';
 import {Text, View, SafeAreaView} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import Button from '../components/Button';
+import {logOut} from '../redux/slices/appSlice';
 
-const Home = () => {
+const Home = ({navigation}) => {
+  const dispatch = useDispatch();
+  const {user} = useSelector(state => state.app);
+
+  if (!user) {
+    navigation.navigate('Auth');
+  }
+
   return (
     <SafeAreaView>
       <View>
@@ -12,14 +21,7 @@ const Home = () => {
         <Button
           label="Log out"
           func={() => {
-            dispatch(loginUser({username: email, password: password}));
-
-            AsyncStorage.getItem('accessToken').then(val => {
-              const access = val;
-              if (access != null) {
-                navigation.navigate('App');
-              }
-            });
+            dispatch(logOut());
           }}
         />
       </View>

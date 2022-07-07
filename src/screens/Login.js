@@ -3,7 +3,7 @@ import {SafeAreaView, Text, View} from 'react-native';
 import Textfield from '../components/Textfield';
 import Button from '../components/Button';
 import {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {loginUser} from '../redux/thunks/appThunk';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 // import {APP_ENVIRONMENT} from '@env';
@@ -12,6 +12,11 @@ const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const {user} = useSelector(state => state.app);
+
+  if (user) {
+    navigation.navigate('App');
+  }
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -42,13 +47,6 @@ const Login = ({navigation}) => {
               label="Sign in"
               func={() => {
                 dispatch(loginUser({username: email, password: password}));
-
-                AsyncStorage.getItem('accessToken').then(val => {
-                  const access = val;
-                  if (access != null) {
-                    navigation.navigate('App');
-                  }
-                });
               }}
             />
           </View>

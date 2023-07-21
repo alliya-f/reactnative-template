@@ -6,7 +6,6 @@ import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {loginUser} from '../redux/thunks/appThunk';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import {APP_ENVIRONMENT} from '@env';
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');

@@ -4,7 +4,6 @@ import store from './src/redux/store';
 import AppNavigator from './src/navigation';
 import {persistStore} from 'redux-persist';
 import {PersistGate} from 'redux-persist/integration/react';
-// import {APP_ENVIRONMENT} from '@env';
 
 const persistor = persistStore(store);
 

@@ -8,10 +8,9 @@ Before you proceed, make sure you have the following software installed on your 
 4. **Xcode** (for macOS users) - Required to build and run the iOS app.
 5. **Android Studio** (for all users) - Required to build and run the Android app.
 6. **JDK** (Java Development Kit) - Make sure you have JDK 8 or later installed.
-## Clone the Repository
-Start by cloning this repository to your local machine. You can do this via the command line using Git:
+## Using the Template
+Click on use this template button on the top right of the repo, it should create a new repo based on this template
 
-  `git clone https://github.com/alliya-f/reactnative-template.git`
 ## Install Dependencies
 Navigate to the project directory and install the required dependencies:
 
